@@ -1,0 +1,79 @@
+FUNCTIONAL PROGRAMMING 
+
+* you typically determine what you want to accomplish in a task then specify
+  precisely how to accomplish it. 
+     -Example : sum the elements of an array 
+        int sum = 0; 
+        for (int i =0; i , value.length; i++) 
+           sum += values[i];
+      - specifies how we'd like to add each array element;s value to the sum  
+     this process as a whole is external iteration i.e you are dealing with how to iterate through the content instead of java Api deal with it(do it for you)  
+         * you specify how to iterate, not the library.        
+         * requires you to access the elements sequentially in a single thread 
+         * create mutable variables
+                      * error prone could example could initialize variable sum incorrectly
+ where as functional programming uses internal iteration.
+    * specify what you want to accomplish, but not how to accomplish it.
+    * to sum an arrray's elements "Here's a data source, so give me the sum of its elements."
+    * easily pararalliz operation to take advantage of multi-core processor with a simple method call that is provide by the stream and functional programming             
+ FUNCTIONAL INTERFACE
+   * interface that contains exactly one abstract method
+       - may also contain default and static methods 
+   * package java.util.function
+       - Six basic generic functional interfaces.
+
+package java.util.function
+   * BinaryOperator<T>
+      - contains method apply that takes two T arguments, performs 
+        an operation on them and returns a value of type T.
+   * Consumer<T>
+      - contains method accepts that takes a T argument and returns void
+      - performs a task with it's T argument, such as outputting the object, invoking a method of the object, etc.
+   * Funtion<T, R>
+      - contains method apply that takes a T argument and returns a value of type R.
+      - calls a method on the T argument and returns that method's result.
+   * predicate<T>
+      _ contains method test that takes a T argument and returns boolean 
+      - Tests whether teh T argument satisfies a condition
+   * Supplier<T>
+      - Contains method get that takes no arguments and produces a value of T
+      - often used to create a collection object in which a stream operations results are placed. 
+   * UnaryOperator<T>
+     - contains method get that takes no arguments and returns value of type T.
+   * anonymous method
+    - short for implementing a functional interface 
+     - similar to an anonymous inner class
+   * type of a lambda expression is that type of functional interface that the lambda expression implements.   
+STREAM 
+ * object that implement interface Stream(From the package java.util.stream)
+    - Enable you to perform Functional programming task 
+    - Also specialized stream interfaces for processing int, long, double vlaus
+ * Stream Pipeline 
+    - move elements through a sequence of processing steps.
+    - Begins with a data source, performs various intermediate operations that data source's andends with a terminal operation
+    - Formed vy chaining method calls 
+ * Do not have their own storage
+   - once processed, a stream cannot be reused--does not maintain a copy of the original data source. 
+ * Intermediate operation
+    - Specifies tasks to perform on the stream's elements and always results in a new stream.
+    - lazy - not performed until a terminal operation is invoked    
+    - This allows library developers to optimize steam-processing performance
+ * Terminal operation 
+    - initiates processing of a stream pieline's intermediate operations and produces a result
+  - Eager--they perform the requested operation when they are called 
+       
+    
+       
+    
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
